@@ -59,7 +59,12 @@ public class MoneyManeger : MonoBehaviour
 
         moneyText.text = "Money : " + money;
         reportMoneyText.text = "Money : " + money;
-        rent = (int)(rent * 1.3f);
+
+        if (DayManeger.instance.currentDay % 2 == 0)
+        {
+            rent = (int)(rent * 1.5f);
+        }
+
         reportRentText.text = "Rent : " + rent;
     }
 
@@ -81,6 +86,7 @@ public class MoneyManeger : MonoBehaviour
 
     public void Replay()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
